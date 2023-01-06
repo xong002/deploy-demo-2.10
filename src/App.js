@@ -101,46 +101,34 @@ function App() {
   //the useEffect hook can prevent missing values during application starts as it runs functions when the app starts.
 
   return (
-    <div className="App">
-      <h1>Product List</h1>
-      <button onClick={apiGet}>Load Products</button>
-      {/* {products && <Table list={products} />} */}
-      <Table
-        list={products}
-        handlerEdit={handlerEdit}
-        handlerDelete={apiDelete}
-      />
-      <AddForm handlerAddItem={apiPost} />
-    </div>
+    <Routes>
 
-    // <Routes>
+      <Route path="*" element={<DefaultPage />} />
 
-    //   <Route path="*" element={<DefaultPage />} />
+      <Route path="/" element={
+        <div className="App">
+          <h1>Product List</h1>
+          <button onClick={apiGet}>Load Products</button>
+          {/* {products && <Table list={products} />} */}
+          <Table
+            list={products}
+            handlerEdit={handlerEdit}
+            handlerDelete={apiDelete}
+          />
+          <AddForm handlerAddItem={apiPost} />
+        </div>
+      }>
+      </Route>
 
-    //   <Route path="/" element={
-    //     <div className="App">
-    //       <h1>Product List</h1>
-    //       <button onClick={apiGet}>Load Products</button>
-    //       {/* {products && <Table list={products} />} */}
-    //       <Table
-    //         list={products}
-    //         handlerEdit={handlerEdit}
-    //         handlerDelete={apiDelete}
-    //       />
-    //       <AddForm handlerAddItem={apiPost} />
-    //     </div>
-    //   }>
-    //   </Route>
+      {/* <Route path=":id" element={editFormState && <EditForm
+        editFormState={editFormState}
+        handlerSubmitEditForm={handlerSubmitEditForm}
+        handlerUpdateEditForm={handlerUpdateEditForm}
+      />}>
 
-    //   {/* <Route path=":id" element={editFormState && <EditForm
-    //     editFormState={editFormState}
-    //     handlerSubmitEditForm={handlerSubmitEditForm}
-    //     handlerUpdateEditForm={handlerUpdateEditForm}
-    //   />}>
+      </Route> */}
 
-    //   </Route> */}
-
-    // </Routes>
+    </Routes>
   );
 }
 
