@@ -120,7 +120,7 @@ function App() {
       }>
       </Route>
 
-      <Route path=":id" element={<EditForm
+      <Route path=":id" element={editFormState && <EditForm
         editFormState={editFormState}
         handlerSubmitEditForm={handlerSubmitEditForm}
         handlerUpdateEditForm={handlerUpdateEditForm}
